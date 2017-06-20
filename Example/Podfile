@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'DZAUnsafeMutableArray_Example' do
+  pod 'DZAUnsafeMutableArray', :path => '../'
+
+  target 'DZAUnsafeMutableArray_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

@@ -1,0 +1,22 @@
+{
+  "name": "DZAUnsafeMutableArray",
+  "version": "0.1.0",
+  "summary": "A short description of DZAUnsafeMutableArray.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Davide Di Stefano/DZAUnsafeMutableArray",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Davide Di Stefano": "dzamirro@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/Davide Di Stefano/DZAUnsafeMutableArray.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "DZAUnsafeMutableArray/Classes/**/*"
+}

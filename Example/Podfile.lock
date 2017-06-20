@@ -1,0 +1,16 @@
+PODS:
+  - DZAUnsafeMutableArray (0.1.0)
+
+DEPENDENCIES:
+  - DZAUnsafeMutableArray (from `../`)
+
+EXTERNAL SOURCES:
+  DZAUnsafeMutableArray:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DZAUnsafeMutableArray: aaa0f5e7868f18fac3130bed1fa977b1ef577f81
+
+PODFILE CHECKSUM: 3363d322a5bc59683cb050d6665a30727bc34537
+
+COCOAPODS: 1.2.1

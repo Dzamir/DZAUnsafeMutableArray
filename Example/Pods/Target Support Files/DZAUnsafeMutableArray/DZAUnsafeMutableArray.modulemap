@@ -1,0 +1,6 @@
+framework module DZAUnsafeMutableArray {
+  umbrella header "DZAUnsafeMutableArray-umbrella.h"
+
+  export *
+  module * { export * }
+}
