@@ -8,6 +8,7 @@
 
 @import XCTest;
 @import DZAUnsafeMutableArray;
+@import Accelerate;
 
 @interface Tests : XCTestCase
 
@@ -86,6 +87,54 @@
     {
         XCTAssertEqual(unsafeArray.intUnsafePointer[i], i);
         XCTAssertEqual([unsafeArray intAtIndex:i], i);
+    }
+}
+
+-(void) testAccellerate
+{
+    DZAUnsafeMutableArray * unsafeArray = [[DZAUnsafeMutableArray alloc] initWithCapacity:2000000];
+    DZAUnsafeMutableArray * outputArray1 = [[DZAUnsafeMutableArray alloc] initWithCapacity:2000000];
+    for (int i = 0; i < 2000000; i++)
+    {
+        [unsafeArray addInt:i];
+    }
+    int scalar = 3;
+    vDSP_vsaddi(unsafeArray.intUnsafePointer, 1, &scalar, outputArray1.intUnsafePointer, 1, unsafeArray.length);
+
+    for (int i = 0; i < outputArray1.length; i++)
+    {
+        int value = outputArray1.intUnsafePointer[i];
+        XCTAssertEqual(value, i + 3);
+    }
+
+    // realloc test
+    DZAUnsafeMutableArray * outputArray2 = [[DZAUnsafeMutableArray alloc] initWithCapacity:4000000];
+    for (int i = 2000000; i < 4000000; i++)
+    {
+        [unsafeArray addInt:i];
+    }
+    vDSP_vsaddi(unsafeArray.intUnsafePointer, 1, &scalar, outputArray2.intUnsafePointer, 1, unsafeArray.length);
+    for (int i = 0; i < outputArray1.length; i++)
+    {
+        int value = outputArray1.intUnsafePointer[i];
+        XCTAssertEqual(value, i + 3);
+    }
+}
+
+-(void) testAccellerateSameOutput
+{
+    DZAUnsafeMutableArray * unsafeArray = [[DZAUnsafeMutableArray alloc] initWithCapacity:2000000];
+    for (int i = 0; i < 2000000; i++)
+    {
+        [unsafeArray addInt:i];
+    }
+    int scalar = 3;
+    vDSP_vsaddi(unsafeArray.intUnsafePointer, 1, &scalar, unsafeArray.intUnsafePointer, 1, unsafeArray.length);
+
+    for (int i = 0; i < unsafeArray.length; i++)
+    {
+        int value = unsafeArray.intUnsafePointer[i];
+        XCTAssertEqual(value, i + 3);
     }
 }
 

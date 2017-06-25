@@ -7,6 +7,7 @@
 //
 
 #import "DZAViewController.h"
+@import Accelerate;
 
 @interface DZAViewController ()
 
