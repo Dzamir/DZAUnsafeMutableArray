@@ -45,11 +45,11 @@
 
 -(void) removeLastObject;
 {
-    _intUnsafePointer[_count] = 0;
     if (_count > 0)
     {
         _count--;
     }
+    _intUnsafePointer[_count] = 0;
 }
 
 // new size should be smaller then length, otherwise the method does nothing

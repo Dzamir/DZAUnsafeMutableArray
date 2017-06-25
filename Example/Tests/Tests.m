@@ -138,5 +138,59 @@
     }
 }
 
-@end
+-(void) testRemove
+{
+    DZAUnsafeMutableArray * unsafeArray = [[DZAUnsafeMutableArray alloc] initWithCapacity:2000000];
+    for (int i = 0; i < 10; i++)
+    {
+        [unsafeArray addInt:i];
+    }
+    XCTAssertEqual(unsafeArray.count, 10);
+    for (int i = 0; i < unsafeArray.count; i++)
+    {
+        XCTAssertEqual([unsafeArray intAtIndex:i], i);
+    }
+    [unsafeArray removeLastObject];
+    XCTAssertEqual(unsafeArray.count, 9);
+    for (int i = 0; i < unsafeArray.count; i++)
+    {
+        XCTAssertEqual([unsafeArray intAtIndex:i], i);
+    }
+    XCTAssertEqual(unsafeArray.intUnsafePointer[9], 0);
+    XCTAssertEqual(unsafeArray.intUnsafePointer[8], 8);
+    XCTAssertEqual(unsafeArray.intUnsafePointer[7], 7);
+    [unsafeArray removeLastObject];
+    XCTAssertEqual(unsafeArray.intUnsafePointer[9], 0);
+    XCTAssertEqual(unsafeArray.intUnsafePointer[8], 0);
+    XCTAssertEqual(unsafeArray.intUnsafePointer[7], 7);
+}
 
+-(void) testShrink
+{
+    DZAUnsafeMutableArray * unsafeArray = [[DZAUnsafeMutableArray alloc] initWithCapacity:2000000];
+    for (int i = 0; i < 10; i++)
+    {
+        [unsafeArray addInt:i];
+    }
+    XCTAssertEqual(unsafeArray.count, 10);
+    for (int i = 0; i < unsafeArray.count; i++)
+    {
+        XCTAssertEqual([unsafeArray intAtIndex:i], i);
+    }
+    [unsafeArray shrinkToSize:5];
+    XCTAssertEqual(unsafeArray.count, 5);
+    for (int i = 0; i < unsafeArray.count; i++)
+    {
+        XCTAssertEqual([unsafeArray intAtIndex:i], i);
+    }
+    XCTAssertEqual(unsafeArray.intUnsafePointer[9], 0);
+    XCTAssertEqual(unsafeArray.intUnsafePointer[8], 0);
+    XCTAssertEqual(unsafeArray.intUnsafePointer[7], 0);
+    XCTAssertEqual(unsafeArray.intUnsafePointer[6], 0);
+    XCTAssertEqual(unsafeArray.intUnsafePointer[5], 0);
+    XCTAssertEqual(unsafeArray.intUnsafePointer[4], 4);
+
+}
+
+
+@end
