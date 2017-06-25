@@ -4,42 +4,25 @@
 //
 //  Created by Davide Di Stefano on 20/06/17.
 //
+//  An Objectice-c wrapper around a pointer to a growing array of int values
 
 #import <Foundation/Foundation.h>
 
-typedef enum _Type
-{
-    TypeBool,
-    TypeChar,
-    TypeUnsignedChar,
-    TypeInt,
-    TypeUnsignedInt,
-    TypeShort,
-    TypeUnsignedShort,
-    TypeLong,
-    TypeUnsignedLong,
-    TypeDouble,
-    TypeFloat
-} Type;
-
 @interface DZAUnsafeMutableArray : NSObject
 
--(instancetype) initWithCapacity:(NSUInteger) initialCapacity elementSize:(size_t) elementSize;
-
--(void) addElement:(void *) element;
--(void *) elementAtIndex:(int) index;
+-(instancetype) initWithCapacity:(NSUInteger) initialCapacity;
 
 -(void) addInt:(int) element;
 -(int) intAtIndex:(int) index;
-
-//-(void) addElement2:(TypesUnion) element;
-//-(TypesUnion) elementAtIndex2:(int) index;
+// removes latest object from the array
+-(void) removeLastObject;
+// new size should be smaller then length, otherwise the method does nothing
+-(void) shrinkToSize:(NSUInteger) newSize;
 
 @property (readonly, nonatomic) NSUInteger capacity;
 @property (readonly, nonatomic) NSUInteger length;
 @property (readonly, nonatomic) size_t elementSize;
 @property (readonly, nonatomic) void * unsafePointer;
 @property (readonly, nonatomic) int * intUnsafePointer;
-//@property (readonly, nonatomic) TypesUnion * unsafePointer2;
 
 @end

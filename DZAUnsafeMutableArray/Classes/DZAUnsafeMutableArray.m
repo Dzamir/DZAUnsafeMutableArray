@@ -9,52 +9,13 @@
 
 @implementation DZAUnsafeMutableArray
 
--(instancetype) initWithCapacity:(NSUInteger) initialCapacity elementSize:(size_t) elementSize;
+-(instancetype) initWithCapacity:(NSUInteger) initialCapacity
 {
     if (self = [super init])
     {
         _capacity = initialCapacity;
         _length = 0;
-        _elementSize = elementSize;
-/*        switch (type)
-        {
-            case TypeBool:
-                _elementSize = sizeof(BOOL);
-                break;
-            case TypeChar:
-                _elementSize = sizeof(char);
-                break;
-            case TypeUnsignedChar:
-                _elementSize = sizeof(unsigned char);
-                break;
-            case TypeInt:
-                _elementSize = sizeof(int);
-                break;
-            case TypeUnsignedInt:
-                _elementSize = sizeof(unsigned int);
-                break;
-            case TypeShort:
-                _elementSize = sizeof(short);
-                break;
-            case TypeUnsignedShort:
-                _elementSize = sizeof(unsigned short);
-                break;
-            case TypeLong:
-                _elementSize = sizeof(long);
-                break;
-            case TypeUnsignedLong:
-                _elementSize = sizeof(unsigned long);
-                break;
-            case TypeDouble:
-                _elementSize = sizeof(double);
-                break;
-            case TypeFloat:
-                _elementSize = sizeof(float);
-                break;
-            default:
-                _elementSize = sizeof(int);
-                break;
-        }*/
+        _elementSize = sizeof(int);
         _unsafePointer = malloc(_elementSize * _capacity);
         [self reassignPointers];
     }
@@ -64,16 +25,6 @@
 -(void) dealloc
 {
     free(_unsafePointer);
-}
-
--(void) addElement:(void *) element;
-{
-    if (_length >= _capacity)
-    {
-        [self growArray];
-    }
-    ((int*)_unsafePointer)[_length] =  *((int *)element);
-    _length++;
 }
 
 -(void) addInt:(int) element
@@ -92,10 +43,23 @@
     return (_intUnsafePointer)[index];
 }
 
--(void *) elementAtIndex:(int) index;
+-(void) removeLastObject;
 {
-    assert(index < _length);
-    return &(_unsafePointer[index]);
+    _intUnsafePointer[_length] = 0;
+    if (_length > 0)
+    {
+        _length--;
+    }
+}
+
+// new size should be smaller then length, otherwise the method does nothing
+-(void) shrinkToSize:(NSUInteger) newSize;
+{
+    for (NSUInteger i = newSize; i < _length; i++)
+    {
+        _intUnsafePointer[i] = 0;
+    }
+    _length = newSize;
 }
 
 -(void) growArray
