@@ -10,7 +10,7 @@
 \
 %.6f ms\
 \
-Test 2) Instantiating a DZAUnsafeMutableArray with int values, iterating each element and replacing it with a new int, created by summing a scalar value\
+Test 2) Instantiating a DZAUnsafeMutableArray with int values, iterating each element and adding a scalar value\
 \
 %.6f ms\
 \
