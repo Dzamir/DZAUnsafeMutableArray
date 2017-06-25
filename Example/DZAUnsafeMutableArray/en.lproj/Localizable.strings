@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  DZAUnsafeMutableArray
+
+  Created by Davide Di Stefano on 25/06/17.
+  Copyright © 2017 Davide Di Stefano. All rights reserved.
+*/
+
+"benchmarkResults" = "Test 1) Instantiating a NSMutableArray with NSNumbers object, iterating each element and reallocating it with a new NSNumber, created by summing a scalar value:\
+\
+%.6f ms\
+\
+Test 2) Instantiating a DZAUnsafeMutableArray with int values, iterating each element and replacing it with a new int, created by summing a scalar value\
+\
+%.6f ms\
+\
+Test 3) Instantiating a DZAUnsafeMutableArray with int values and adding a scalar value on each element by using the Accelerate framework\
+\
+%.6f ms";

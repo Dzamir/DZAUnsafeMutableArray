@@ -32,9 +32,9 @@
 {
     DZAUnsafeMutableArray * unsafeArray = [[DZAUnsafeMutableArray alloc] initWithCapacity:10];
     XCTAssertEqual(unsafeArray.capacity, 10);
-    XCTAssertEqual(unsafeArray.length, 0);
+    XCTAssertEqual(unsafeArray.count, 0);
     [unsafeArray addInt:3];
-    XCTAssertEqual(unsafeArray.length, 1);
+    XCTAssertEqual(unsafeArray.count, 1);
     XCTAssertEqual(unsafeArray.intUnsafePointer[0], 3);
     XCTAssertEqual([unsafeArray intAtIndex:0], 3);
 }
@@ -43,13 +43,13 @@
 {
     DZAUnsafeMutableArray * unsafeArray = [[DZAUnsafeMutableArray alloc] initWithCapacity:1];
     XCTAssertEqual(unsafeArray.capacity, 1);
-    XCTAssertEqual(unsafeArray.length, 0);
+    XCTAssertEqual(unsafeArray.count, 0);
     [unsafeArray addInt:3];
-    XCTAssertEqual(unsafeArray.length, 1);
+    XCTAssertEqual(unsafeArray.count, 1);
     XCTAssertEqual(unsafeArray.intUnsafePointer[0], 3);
     XCTAssertEqual([unsafeArray intAtIndex:0], 3);
     [unsafeArray addInt:6];
-    XCTAssertEqual(unsafeArray.length, 2);
+    XCTAssertEqual(unsafeArray.count, 2);
     XCTAssertEqual(unsafeArray.intUnsafePointer[1], 6);
     XCTAssertEqual([unsafeArray intAtIndex:1], 6);
     [unsafeArray addInt:10];
@@ -59,7 +59,7 @@
     [unsafeArray addInt:50];
     [unsafeArray addInt:60];
     [unsafeArray addInt:70];
-    XCTAssertEqual(unsafeArray.length, 9);
+    XCTAssertEqual(unsafeArray.count, 9);
     XCTAssertEqual(unsafeArray.intUnsafePointer[2], 10);
     XCTAssertEqual([unsafeArray intAtIndex:2], 10);
     XCTAssertEqual(unsafeArray.intUnsafePointer[3], 20);
@@ -99,9 +99,9 @@
         [unsafeArray addInt:i];
     }
     int scalar = 3;
-    vDSP_vsaddi(unsafeArray.intUnsafePointer, 1, &scalar, outputArray1.intUnsafePointer, 1, unsafeArray.length);
+    vDSP_vsaddi(unsafeArray.intUnsafePointer, 1, &scalar, outputArray1.intUnsafePointer, 1, unsafeArray.count);
 
-    for (int i = 0; i < outputArray1.length; i++)
+    for (int i = 0; i < outputArray1.count; i++)
     {
         int value = outputArray1.intUnsafePointer[i];
         XCTAssertEqual(value, i + 3);
@@ -113,8 +113,8 @@
     {
         [unsafeArray addInt:i];
     }
-    vDSP_vsaddi(unsafeArray.intUnsafePointer, 1, &scalar, outputArray2.intUnsafePointer, 1, unsafeArray.length);
-    for (int i = 0; i < outputArray1.length; i++)
+    vDSP_vsaddi(unsafeArray.intUnsafePointer, 1, &scalar, outputArray2.intUnsafePointer, 1, unsafeArray.count);
+    for (int i = 0; i < outputArray1.count; i++)
     {
         int value = outputArray1.intUnsafePointer[i];
         XCTAssertEqual(value, i + 3);
@@ -129,9 +129,9 @@
         [unsafeArray addInt:i];
     }
     int scalar = 3;
-    vDSP_vsaddi(unsafeArray.intUnsafePointer, 1, &scalar, unsafeArray.intUnsafePointer, 1, unsafeArray.length);
+    vDSP_vsaddi(unsafeArray.intUnsafePointer, 1, &scalar, unsafeArray.intUnsafePointer, 1, unsafeArray.count);
 
-    for (int i = 0; i < unsafeArray.length; i++)
+    for (int i = 0; i < unsafeArray.count; i++)
     {
         int value = unsafeArray.intUnsafePointer[i];
         XCTAssertEqual(value, i + 3);

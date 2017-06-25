@@ -89,9 +89,11 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/DZATimer/DZATimer.framework"
   install_framework "$BUILT_PRODUCTS_DIR/DZAUnsafeMutableArray/DZAUnsafeMutableArray.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/DZATimer/DZATimer.framework"
   install_framework "$BUILT_PRODUCTS_DIR/DZAUnsafeMutableArray/DZAUnsafeMutableArray.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

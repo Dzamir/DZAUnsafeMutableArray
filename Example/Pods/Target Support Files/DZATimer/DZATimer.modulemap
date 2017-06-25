@@ -1,0 +1,6 @@
+framework module DZATimer {
+  umbrella header "DZATimer-umbrella.h"
+
+  export *
+  module * { export * }
+}

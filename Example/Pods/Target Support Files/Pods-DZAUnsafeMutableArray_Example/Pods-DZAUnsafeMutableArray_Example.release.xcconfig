@@ -1,8 +1,8 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/DZAUnsafeMutableArray"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/DZATimer" "$PODS_CONFIGURATION_BUILD_DIR/DZAUnsafeMutableArray"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/DZAUnsafeMutableArray/DZAUnsafeMutableArray.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -framework "DZAUnsafeMutableArray"
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/DZATimer/DZATimer.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/DZAUnsafeMutableArray/DZAUnsafeMutableArray.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "DZATimer" -framework "DZAUnsafeMutableArray"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.

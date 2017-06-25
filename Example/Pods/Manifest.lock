@@ -1,7 +1,9 @@
 PODS:
+  - DZATimer (0.1.2)
   - DZAUnsafeMutableArray (0.1.0)
 
 DEPENDENCIES:
+  - DZATimer
   - DZAUnsafeMutableArray (from `../`)
 
 EXTERNAL SOURCES:
@@ -9,8 +11,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
+  DZATimer: 45ac73c2d351de7b5ab5bcd940606c36493ac825
   DZAUnsafeMutableArray: aaa0f5e7868f18fac3130bed1fa977b1ef577f81
 
-PODFILE CHECKSUM: 3363d322a5bc59683cb050d6665a30727bc34537
+PODFILE CHECKSUM: c5f79f65aa54ed987703f279eb999987d073cfde
 
 COCOAPODS: 1.2.1

@@ -14,7 +14,7 @@
     if (self = [super init])
     {
         _capacity = initialCapacity;
-        _length = 0;
+        _count = 0;
         _elementSize = sizeof(int);
         _unsafePointer = malloc(_elementSize * _capacity);
         [self reassignPointers];
@@ -29,37 +29,37 @@
 
 -(void) addInt:(int) element
 {
-    if (_length >= _capacity)
+    if (_count >= _capacity)
     {
         [self growArray];
     }
-    _intUnsafePointer[_length] = element;
-    _length++;
+    _intUnsafePointer[_count] = element;
+    _count++;
 }
 
 -(int) intAtIndex:(int) index;
 {
-    assert(index < _length);
+    assert(index < _count);
     return (_intUnsafePointer)[index];
 }
 
 -(void) removeLastObject;
 {
-    _intUnsafePointer[_length] = 0;
-    if (_length > 0)
+    _intUnsafePointer[_count] = 0;
+    if (_count > 0)
     {
-        _length--;
+        _count--;
     }
 }
 
 // new size should be smaller then length, otherwise the method does nothing
 -(void) shrinkToSize:(NSUInteger) newSize;
 {
-    for (NSUInteger i = newSize; i < _length; i++)
+    for (NSUInteger i = newSize; i < _count; i++)
     {
         _intUnsafePointer[i] = 0;
     }
-    _length = newSize;
+    _count = newSize;
 }
 
 -(void) growArray

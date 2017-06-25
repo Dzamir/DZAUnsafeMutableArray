@@ -20,7 +20,7 @@
 -(void) shrinkToSize:(NSUInteger) newSize;
 
 @property (readonly, nonatomic) NSUInteger capacity;
-@property (readonly, nonatomic) NSUInteger length;
+@property (readonly, nonatomic) NSUInteger count;
 @property (readonly, nonatomic) size_t elementSize;
 @property (readonly, nonatomic) void * unsafePointer;
 @property (readonly, nonatomic) int * intUnsafePointer;

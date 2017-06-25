@@ -1,6 +1,8 @@
+source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 target 'DZAUnsafeMutableArray_Example' do
+  pod 'DZATimer'
   pod 'DZAUnsafeMutableArray', :path => '../'
 
   target 'DZAUnsafeMutableArray_Tests' do
