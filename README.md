@@ -37,6 +37,10 @@ Example usage:
     int scalar = 3;
     vDSP_vsaddi(unsafeArray.intUnsafePointer, 1, &scalar, unsafeArray.intUnsafePointer, 1, unsafeArray.count);
 
+A small benchmark app is included:
+
+![Benchmark with small array](screen_2.png)
+![Benchmark with big array](screen_1.png)
 
 ## Requirements
 
