@@ -39,8 +39,8 @@ Example usage:
 
 A small benchmark app is included:
 
-![Benchmark with small array](screen_2.png)
-![Benchmark with big array](screen_1.png)
+![Benchmark with small array](screen_2.jpg)
+![Benchmark with big array](screen_1.jpg)
 
 ## Requirements
 
