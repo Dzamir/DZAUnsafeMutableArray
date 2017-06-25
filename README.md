@@ -1,10 +1,3 @@
-# DZAUnsafeMutableArray
-
-[![CI Status](http://img.shields.io/travis/Davide Di Stefano/DZAUnsafeMutableArray.svg?style=flat)](https://travis-ci.org/Davide Di Stefano/DZAUnsafeMutableArray)
-[![Version](https://img.shields.io/cocoapods/v/DZAUnsafeMutableArray.svg?style=flat)](http://cocoapods.org/pods/DZAUnsafeMutableArray)
-[![License](https://img.shields.io/cocoapods/l/DZAUnsafeMutableArray.svg?style=flat)](http://cocoapods.org/pods/DZAUnsafeMutableArray)
-[![Platform](https://img.shields.io/cocoapods/p/DZAUnsafeMutableArray.svg?style=flat)](http://cocoapods.org/pods/DZAUnsafeMutableArray)
-
 ## What is this for
 
 This class is an Objective-C wrapper around a c auto-growing pointer array.
