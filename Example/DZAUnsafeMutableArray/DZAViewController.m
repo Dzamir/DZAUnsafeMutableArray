@@ -41,18 +41,10 @@
 - (IBAction)startBenchmarksAction:(id)sender
 {
     int arraySize = (int)_arraySizeSlider.value;
-    DZATimer * timer = [[DZATimer alloc] init];
-    [timer startTimer];
-    [self testNSMutableArrayWithArraySize:arraySize];
-    NSTimeInterval benchmarkNSMutableArrayTimeInterval = [timer stopTimer];
 
-    [timer startTimer];
-    [self testUnsafeMutableArrayWithArraySize:arraySize];
-    NSTimeInterval benchmarkUnsafeMutableArrayTimeInterval = [timer stopTimer];
-
-    [timer startTimer];
-    [self testAccelerateUnsafeMutableArrayWithArraySize:arraySize];
-    NSTimeInterval benchmarkAccelerateUnsafeMutableArrayTimeInterval = [timer stopTimer];
+    NSTimeInterval benchmarkNSMutableArrayTimeInterval = [self testNSMutableArrayWithArraySize:arraySize];
+    NSTimeInterval benchmarkUnsafeMutableArrayTimeInterval = [self testUnsafeMutableArrayWithArraySize:arraySize];
+    NSTimeInterval benchmarkAccelerateUnsafeMutableArrayTimeInterval = [self testAccelerateUnsafeMutableArrayWithArraySize:arraySize];
 
     NSString * testResultsString = [NSString stringWithFormat:NSLocalizedString(@"benchmarkResults", nil),
                               benchmarkNSMutableArrayTimeInterval * 100,
@@ -62,43 +54,58 @@
 }
 
 #define SCALAR 3
--(void) testNSMutableArrayWithArraySize:(int) arraySize
+-(NSTimeInterval) testNSMutableArrayWithArraySize:(int) arraySize
 {
-    NSMutableArray * array = [NSMutableArray arrayWithCapacity:1000];
+    NSMutableArray * array1 = [NSMutableArray arrayWithCapacity:1000];
     for (int i = 0; i < arraySize; i++)
     {
-        [array addObject:@(i)];
+        [array1 addObject:@(i)];
     }
-    for (int i = 0; i < array.count; i++)
+    DZATimer * timer = [[DZATimer alloc] init];
+    [timer startTimer];
+    for (int i = 0; i < array1.count; i++)
     {
-        NSNumber * objectAtIndex = array[i];
-        NSNumber * sum = [NSNumber numberWithInt:[objectAtIndex intValue] + SCALAR];
-        [array replaceObjectAtIndex:i withObject:sum];
+        NSNumber * objectAtIndex1 = array1[i];
+        NSNumber * sum1 = [NSNumber numberWithInt:[objectAtIndex1 intValue] + SCALAR];
+        [array1 replaceObjectAtIndex:i withObject:sum1];
     }
+    NSTimeInterval benchmarkTimeInterval = [timer stopTimer];
+    return benchmarkTimeInterval;
 }
 
--(void) testUnsafeMutableArrayWithArraySize:(int) arraySize
+-(NSTimeInterval) testUnsafeMutableArrayWithArraySize:(int) arraySize
 {
-    DZAUnsafeMutableArray * unsafeArray = [[DZAUnsafeMutableArray alloc] initWithCapacity:2000000];
-    for (int i = 0; i < 2000000; i++)
+    DZAUnsafeMutableArray * unsafeArray1 = [[DZAUnsafeMutableArray alloc] initWithCapacity:1000];
+    for (int i = 0; i < arraySize; i++)
     {
-        [unsafeArray addInt:i];
+        [unsafeArray1 addInt:i];
     }
-    for (int i = 0; i < unsafeArray.count; i++)
+
+    DZATimer * timer = [[DZATimer alloc] init];
+    [timer startTimer];
+    int *p = unsafeArray1.intUnsafePointer;
+    for (int i = 0; i < unsafeArray1.count; i++, p++)
     {
-        unsafeArray.intUnsafePointer[i] = unsafeArray.intUnsafePointer[i] + SCALAR;
+        *p += SCALAR;
     }
+    NSTimeInterval benchmarkTimeInterval = [timer stopTimer];
+    return benchmarkTimeInterval;
 }
 
--(void) testAccelerateUnsafeMutableArrayWithArraySize:(int) arraySize
+-(NSTimeInterval) testAccelerateUnsafeMutableArrayWithArraySize:(int) arraySize
 {
-    DZAUnsafeMutableArray * unsafeArray = [[DZAUnsafeMutableArray alloc] initWithCapacity:2000000];
-    for (int i = 0; i < 2000000; i++)
+    DZAUnsafeMutableArray * unsafeArray1 = [[DZAUnsafeMutableArray alloc] initWithCapacity:1000];
+    for (int i = 0; i < arraySize; i++)
     {
-        [unsafeArray addInt:i];
+        [unsafeArray1 addInt:i];
     }
+
+    DZATimer * timer = [[DZATimer alloc] init];
+    [timer startTimer];
     int scalar = SCALAR;
-    vDSP_vsaddi(unsafeArray.intUnsafePointer, 1, &scalar, unsafeArray.intUnsafePointer, 1, unsafeArray.count);
+    vDSP_vsaddi(unsafeArray1.intUnsafePointer, 1, &scalar, unsafeArray1.intUnsafePointer, 1, unsafeArray1.count);
+    NSTimeInterval benchmarkTimeInterval = [timer stopTimer];
+    return benchmarkTimeInterval;
 }
 
 @end
