@@ -6,7 +6,7 @@
   Copyright © 2017 Davide Di Stefano. All rights reserved.
 */
 
-"benchmarkResults" = "Test 1) Instantiating a NSMutableArray with NSNumbers object, iterating each element and reallocating it with a new NSNumber, created by summing a scalar value:\
+"benchmarkResults" = "Test 1) Instantiating a NSMutableArray with NSNumber objects, iterating each element and reallocating it with a new NSNumber, created by summing a scalar value:\
 \
 %.6f ms\
 \

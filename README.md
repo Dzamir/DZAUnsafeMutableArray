@@ -25,7 +25,14 @@ Example usage:
     [unsafeArray removeLastObject];
     // shrink the array to the new size
     [unsafeArray shrinkToSize:5];
-    // low-level access to the c pointer array with Accelerate framework:
+    // low-level access to the c pointer array
+    int * pointer = unsafeArray.intUnsafePointer;
+    // iterate all the items and manually sum a scalar
+    for (int i = 0; i < unsafeArray1.count; i++, pointer++)
+    {
+        *pointer += SCALAR;
+    }
+    // use the c pointer array with Accelerate framework:
     // sums a scalar to the entire vector
     int scalar = 3;
     vDSP_vsaddi(unsafeArray.intUnsafePointer, 1, &scalar, unsafeArray.intUnsafePointer, 1, unsafeArray.count);
