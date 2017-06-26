@@ -47,9 +47,9 @@
     NSTimeInterval benchmarkAccelerateUnsafeMutableArrayTimeInterval = [self testAccelerateUnsafeMutableArrayWithArraySize:arraySize];
 
     NSString * testResultsString = [NSString stringWithFormat:NSLocalizedString(@"benchmarkResults", nil),
-                              benchmarkNSMutableArrayTimeInterval * 100,
-                              benchmarkUnsafeMutableArrayTimeInterval * 100,
-                              benchmarkAccelerateUnsafeMutableArrayTimeInterval * 100];
+                              benchmarkNSMutableArrayTimeInterval * 1000,
+                              benchmarkUnsafeMutableArrayTimeInterval * 1000,
+                              benchmarkAccelerateUnsafeMutableArrayTimeInterval * 1000];
     _textView.text = testResultsString;
 }
 
