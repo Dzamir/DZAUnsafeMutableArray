@@ -12,6 +12,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 Example usage:
 
+```objc
     // create and fill the array as an high level object
     DZAUnsafeMutableArray * unsafeArray = [[DZAUnsafeMutableArray alloc] initWithCapacity:10];
     for (int i = 0; i < 10; i++)
@@ -36,6 +37,7 @@ Example usage:
     // sums a scalar to the entire vector
     int scalar = 3;
     vDSP_vsaddi(unsafeArray.intUnsafePointer, 1, &scalar, unsafeArray.intUnsafePointer, 1, unsafeArray.count);
+```
 
 A small benchmark app is included:
 
