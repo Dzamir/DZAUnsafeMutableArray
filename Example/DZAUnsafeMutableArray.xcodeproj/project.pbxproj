@@ -25,8 +25,8 @@
 		847430F67545EFCAC99EF668 /* Pods_DZAUnsafeMutableArray_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E664D84D439F9C98869629AF /* Pods_DZAUnsafeMutableArray_Example.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		9022A9E71EFFB80C0096D4B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9022A9E91EFFB80C0096D4B1 /* Localizable.strings */; };
-		90BB5BF21F005E3F00499AA0 /* screen_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90BB5BF01F005E3F00499AA0 /* screen_1.jpg */; };
-		90BB5BF31F005E3F00499AA0 /* screen_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90BB5BF11F005E3F00499AA0 /* screen_2.jpg */; };
+		B31C4BBE1F023739000A262C /* screen_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B31C4BBC1F023739000A262C /* screen_1.jpg */; };
+		B31C4BBF1F023739000A262C /* screen_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B31C4BBD1F023739000A262C /* screen_2.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,9 +69,9 @@
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9022A9E81EFFB80C0096D4B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9079BB78964C50859A43E725 /* Pods-DZAUnsafeMutableArray_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZAUnsafeMutableArray_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-DZAUnsafeMutableArray_Example/Pods-DZAUnsafeMutableArray_Example.release.xcconfig"; sourceTree = "<group>"; };
-		90BB5BF01F005E3F00499AA0 /* screen_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screen_1.jpg; sourceTree = "<group>"; };
-		90BB5BF11F005E3F00499AA0 /* screen_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = screen_2.jpg; sourceTree = "<group>"; };
 		ACDF1DA251CF8260E106E8F3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		B31C4BBC1F023739000A262C /* screen_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = screen_1.jpg; path = ../screen_1.jpg; sourceTree = "<group>"; };
+		B31C4BBD1F023739000A262C /* screen_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = screen_2.jpg; path = ../screen_2.jpg; sourceTree = "<group>"; };
 		E664D84D439F9C98869629AF /* Pods_DZAUnsafeMutableArray_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DZAUnsafeMutableArray_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -199,8 +199,8 @@
 				51D0C8514FE827B71EA1F670 /* DZAUnsafeMutableArray.podspec */,
 				68B204BF65A2A1BC334C38B8 /* README.md */,
 				ACDF1DA251CF8260E106E8F3 /* LICENSE */,
-				90BB5BF01F005E3F00499AA0 /* screen_1.jpg */,
-				90BB5BF11F005E3F00499AA0 /* screen_2.jpg */,
+				B31C4BBC1F023739000A262C /* screen_1.jpg */,
+				B31C4BBD1F023739000A262C /* screen_2.jpg */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -293,12 +293,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9022A9E71EFFB80C0096D4B1 /* Localizable.strings in Resources */,
-				90BB5BF21F005E3F00499AA0 /* screen_1.jpg in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
-				90BB5BF31F005E3F00499AA0 /* screen_2.jpg in Resources */,
+				B31C4BBE1F023739000A262C /* screen_1.jpg in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				B31C4BBF1F023739000A262C /* screen_2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

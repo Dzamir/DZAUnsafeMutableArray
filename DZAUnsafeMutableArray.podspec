@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'DZAUnsafeMutableArray'
-  s.version          = '0.2.0'
+  s.version          = '0.2.1'
   s.summary          = 'An Objective-C wrapper around a c auto-growing pointer array.'
 
   s.description      = <<-DESC
@@ -17,6 +17,9 @@ With this wrapper library, we can easily create and manupulate the c pointer arr
   s.social_media_url = 'https://twitter.com/dzamir'
 
   s.ios.deployment_target = '8.0'
+  s.osx.deployment_target  = '10.10'
+  s.watchos.deployment_target = '2.0'
+  s.tvos.deployment_target = '9.0'
 
   s.source_files = 'DZAUnsafeMutableArray/Classes/**/*'
 end
